@@ -1,0 +1,60 @@
+{
+  "Routes": [
+    {
+      "SwaggerKey": "newsapi",
+      "UpstreamPathTemplate": "/api/{version}/news",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+      "DownstreamPathTemplate": "/api/{version}/news",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7087
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "aggregator",
+      "UpstreamPathTemplate": "/api/{version}/AggregateResultsFromApis",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+      "DownstreamPathTemplate": "/api/{version}/AggregateResultsFromApis",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7067
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "newsapi",
+      "Config": [
+        {
+          "Name": "NewsApiConsumer",
+          "Version": "v1",
+          "Url": "https://localhost:7087/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "aggregator",
+      "Config": [
+        {
+          "Name": "Aggregator",
+          "Version": "v1",
+          "Url": "https://localhost:7067/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}

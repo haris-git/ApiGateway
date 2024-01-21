@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package NewsApi;
+
+service NewsApiGrpc {
+	rpc GetNews (GetNewsRequest) returns (GetNewsResponse);
+}
+
+message GetNewsRequest {
+	string q = 1;
+}
+
+message GetNewsResponse {
+	string status = 1;
+	int32 totalResults = 2;
+	repeated ArticlesResponse articles = 3;
+	string code = 4;
+	string message = 5;
+}
+
+message ArticlesResponse {
+	SourceResponse source = 1;
+	string author = 2;
+	string title = 3;
+	string description = 4;
+	string url = 5;
+	string urlToImage = 6;
+	string publishedAt = 7;
+	string content = 8;
+}
+
+message SourceResponse {
+	string id = 1;
+	string name =2;
+}
